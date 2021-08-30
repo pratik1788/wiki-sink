@@ -26,8 +26,11 @@ public class WikiValidDataEntity {
             PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
     private Integer nonUniqueViews;
 
-    @PrimaryKeyColumn(name = "PAGE_NAME", ordinal = 0, type =
-            PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "RECORD_ID", ordinal = 0, type =
+            PrimaryKeyType.CLUSTERED, ordering = Ordering.ASCENDING)
+    private Integer recordId;
+
+    @Column("PAGE_NAME")
     private String pageName;
 
     @Column("BYTE_TRANSFERRED")

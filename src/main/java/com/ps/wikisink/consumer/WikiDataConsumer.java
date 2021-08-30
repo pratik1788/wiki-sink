@@ -51,6 +51,7 @@ public class WikiDataConsumer {
                     .pageName(e.getPageName())
                     .nonUniqueViews(e.getNonUniqueViews())
                     .byteTransferred(e.getBytesTransferred())
+                    .recordId(e.getRecordId())
                     .build()).collect(Collectors.toList())).blockLast();
         }
     }

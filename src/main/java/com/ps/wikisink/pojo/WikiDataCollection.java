@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class WikiDataCollection extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6548721865850036091L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WikiDataCollection\",\"namespace\":\"com.ps.wikisink.pojo\",\"fields\":[{\"name\":\"wikiDataList\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"WikiData\",\"fields\":[{\"name\":\"yearMonthDay\",\"type\":\"int\"},{\"name\":\"hourOfDay\",\"type\":\"int\"},{\"name\":\"language\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"pageName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"nonUniqueViews\",\"type\":\"int\"},{\"name\":\"bytesTransferred\",\"type\":\"long\"}]}}}]}");
+  private static final long serialVersionUID = -7787380976760895861L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"WikiDataCollection\",\"namespace\":\"com.ps.wikisink.pojo\",\"fields\":[{\"name\":\"wikiDataList\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"WikiData\",\"fields\":[{\"name\":\"yearMonthDay\",\"type\":\"int\"},{\"name\":\"hourOfDay\",\"type\":\"int\"},{\"name\":\"language\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"nonUniqueViews\",\"type\":\"int\"},{\"name\":\"recordId\",\"type\":\"int\"},{\"name\":\"pageName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"bytesTransferred\",\"type\":\"long\"}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();

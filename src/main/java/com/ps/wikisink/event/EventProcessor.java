@@ -20,6 +20,9 @@ public class EventProcessor {
     @Value("${application.data.batch-size}")
     private int batchSize;
 
+    @Value("${application.data.notification-multiplier}")
+    private int notificationMultiplier;
+
     public void processEvent(String[] typeFileNameDataCountFromKey){
         try {
             if(typeFileNameDataCountFromKey[0].equals("START"))
@@ -37,7 +40,7 @@ public class EventProcessor {
                         .build());
             }
             else{
-                if (Integer.parseInt(typeFileNameDataCountFromKey[2]) % (batchSize*3) == 0) {
+                if (Integer.parseInt(typeFileNameDataCountFromKey[2]) % (batchSize*notificationMultiplier) == 0) {
                     eventProducer.sendMessage(EventNotification.newBuilder()
                             .setFileName(typeFileNameDataCountFromKey[1]).setEventName(EvenetName.DATA_SINK_IN_PROGRESS.getName())
                             .setDetails("No of Message Processed " + typeFileNameDataCountFromKey[2])

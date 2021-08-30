@@ -2,7 +2,8 @@ server:
   port: 8082
 application:
   data:
-    batch-size: 30000
+    batch-size: 2500
+    notification-multiplier: 40
     consumer:
       topic: wiki-data
       group-id: wiki-sink
