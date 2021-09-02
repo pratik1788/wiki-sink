@@ -4,6 +4,7 @@ application:
   data:
     batch-size: 2500
     notification-multiplier: 40
+    pattern-to-skip: "(Special:|User:|File|Image:).*"
     consumer:
       topic: wiki-data
       group-id: wiki-sink
