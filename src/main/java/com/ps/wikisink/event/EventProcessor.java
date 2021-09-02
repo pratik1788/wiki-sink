@@ -43,7 +43,7 @@ public class EventProcessor {
                 if (Integer.parseInt(typeFileNameDataCountFromKey[2]) % (batchSize*notificationMultiplier) == 0) {
                     eventProducer.sendMessage(EventNotification.newBuilder()
                             .setFileName(typeFileNameDataCountFromKey[1]).setEventName(EvenetName.DATA_SINK_IN_PROGRESS.getName())
-                            .setDetails("No of Message Processed " + typeFileNameDataCountFromKey[2])
+                            .setDetails("No. of Messages Processed Till Now: " + typeFileNameDataCountFromKey[2])
                             .setEventTimeStamp(Instant.now())
                             .build()
                     );
