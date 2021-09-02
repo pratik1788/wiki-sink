@@ -24,10 +24,26 @@ class WikiDataFilterTest {
     }
 
     @ParameterizedTest
+    @ValueSource( strings= {"File:test", "User:test2", "Special:test", "Image:test", "File:/sdgsd//dsf", "Media:dfdsadg"})
+    public void isValidRecord_false_generic_pattern(String pageName){
+        wikiDataFilter=new WikiDataFilter();
+        wikiDataFilter.setPrefixesPattern(".*:.*");
+        Assertions.assertFalse(wikiDataFilter.isValidRecord(WikiData.newBuilder().setPageName(pageName).setRecordId(1).setBytesTransferred(1l).setHourOfDay(0).setNonUniqueViews(1).setYearMonthDay(2020).setLanguage("en").build()));
+    }
+
+    @ParameterizedTest
     @ValueSource( strings= {"user test", "pagef", "pagen", "helloworld", "test:do it", "timd special : data"})
     public void isValidRecord_True(String pageName){
         wikiDataFilter=new WikiDataFilter();
         wikiDataFilter.setPrefixesPattern("(Special:|User:|File|Image:).*");
+        Assertions.assertTrue(wikiDataFilter.isValidRecord(WikiData.newBuilder().setPageName(pageName).setRecordId(1).setBytesTransferred(1l).setHourOfDay(0).setNonUniqueViews(1).setYearMonthDay(2020).setLanguage("en").build()));
+    }
+
+    @ParameterizedTest
+    @ValueSource( strings= {"user test", "pagef", "pagen", "helloworld", "test do it", "timd special data"})
+    public void isValidRecord_True_generic_pattern(String pageName){
+        wikiDataFilter=new WikiDataFilter();
+        wikiDataFilter.setPrefixesPattern(".*:.*");
         Assertions.assertTrue(wikiDataFilter.isValidRecord(WikiData.newBuilder().setPageName(pageName).setRecordId(1).setBytesTransferred(1l).setHourOfDay(0).setNonUniqueViews(1).setYearMonthDay(2020).setLanguage("en").build()));
     }
 
